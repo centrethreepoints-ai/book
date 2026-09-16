@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import "@fontsource-variable/cairo/index.css";
+
+@theme {
+  --font-sans: "Cairo Variable", "Cairo", "Segoe UI", system-ui, sans-serif;
+
+  /* هوية المنصة: أخضر زيتوني/تيل هادئ مع لمسات كهرمانية */
+  --color-manar-50: #f2f9f7;
+  --color-manar-100: #dcefe9;
+  --color-manar-200: #bcdfd5;
+  --color-manar-300: #8ec8ba;
+  --color-manar-400: #5daa99;
+  --color-manar-500: #3f8d7d;
+  --color-manar-600: #2f7165;
+  --color-manar-700: #285b52;
+  --color-manar-800: #234a44;
+  --color-manar-900: #1f3e3a;
+  --color-manar-950: #0e2321;
+
+  --color-sand-50: #faf9f6;
+  --color-sand-100: #f3f1ea;
+  --color-sand-200: #e5e1d3;
+  --color-sand-300: #d3cdb8;
+
+  --color-accent-50: #fdf8ec;
+  --color-accent-100: #f9edcc;
+  --color-accent-400: #e8b64c;
+  --color-accent-500: #d99a26;
+  --color-accent-600: #b87c17;
+
+  --shadow-card: 0 1px 2px rgb(16 44 40 / 0.04), 0 4px 16px rgb(16 44 40 / 0.06);
+  --shadow-card-lg: 0 2px 4px rgb(16 44 40 / 0.05), 0 12px 32px rgb(16 44 40 / 0.10);
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-sand-50);
+  color: #1c2b29;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-manar-200);
+}
+
+/* شريط تمرير أنيق */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-manar-300) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-manar-300);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* تنسيق الأرقام داخل النصوص العربية */
+.nums {
+  font-feature-settings: "ss01";
+}
+
+/* منطقة الطباعة */
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-area {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  @page {
+    margin: 14mm 12mm;
+  }
+}
+
+/* حركة ظهور ناعمة */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.28s ease both;
+}
+
+/* تمييز نتائج البحث */
+mark {
+  background: var(--color-accent-100);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+}
